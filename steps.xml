@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+
+<title>How to use virtualenv with Debian-based distros</title>
+
+<section>
+<title>Packages Installation</title>
+
+<section>
+<title>GNU C Compiler</title>
+
+<para>You will need this compiler:</para>
+<screen>
+[#] apt-get -y build-essential
+</screen>
+</section>
+
+<section>
+<title>PostgreSQL</title>
+
+<para>To automate the upgrade, just install:</para>
+<screen>
+[#] apt-get -y install postgresql-server postgresql-client postgresql-contrib postgresql-doc pgadmin3 phppgadmin
+</screen>
+
+<para>To use an specific version:</para>
+<screen>
+[#] apt-get -y install postgresql-server-9.5 postgresql-client-9.5 postgresql-contrib-9.5 postgresql-doc-9.5 pgadmin3 phppgadmin
+</screen>
+
+<para>To use the best for your current version:</para>
+
+<screen>
+[#] apt-get -y install postgresql-server
+</screen>
+
+<para>Install the package to develop PostgreSQL-based applications:</para>
+
+<screen>
+[#] apt-get -y install postgresql-server-dev-9.5
+</screen>
+
+</section>
+
+<section>
+<title>Python development packages</title>
+
+<para>Install the required filed to compile Python-based applications:</para>
+
+<screen>
+[#] apt-get -y install python-dev
+</screen>
+</section>
+
+<para>Install the main package with its dependencies:</para>
+
+<screen>[#] apt-get -y install python-virtualenv</screen> 
+</section>
+
+<section>
+<title>Environment preparation</title>
+
+<para>Create the environment:</para>
+
+<screen>
+[$] virtualenv --verbose --no-site-packages alpha
+</screen>
+
+<para>Enable it:</para>
+
+<screen>
+[$] cd alpha
+
+[$] . bin/activate
+</screen>
+</section>
+
+<section>
+<title>Virtual Environment Tools</title>
+
+<para>Install the necessary tools:</para>
+
+<screen>
+(alpha):~/alpha$ pip --verbose install tg.devtools flask sqlacodegen psycopg2 django django-extensions
+</screen>
+</section>
+</article>

@@ -63,7 +63,7 @@
 <para>Create the environment:</para>
 
 <screen>
-[$] virtualenv --verbose --no-site-packages alpha
+[$] virtualenv --verbose alpha
 </screen>
 
 <para>Enable it:</para>
@@ -75,6 +75,32 @@
 </screen>
 </section>
 
+<para>Install pgAdmin4:</para>
+
+<screen>
+(alpha) asarch@jigoku:~/alpha> pip install --verbose https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v4.30/pip/pgadmin4-4.30-py3-none-any.whl
+</screen>
+
+<para>Configure:</para>
+
+<screen>
+(alpha) asarch@jigoku:~/alpha> gvim lib/python3.8/site-packages/pgadmin4/config.py
+...
+# At the end of the file add:
+DATA_DIR = os.path.realpath(os.path.expanduser(u'~/.pgadmin/'))
+LOG_FILE = os.path.join(DATA_DIR, 'pgadmin4.log')
+SQLITE_PATH = os.path.join(DATA_DIR, 'pgadmin4.db')
+SESSION_DB_PATH = os.path.join(DATA_DIR, 'sessions')
+STORAGE_DIR = os.path.join(DATA_DIR, 'storage')
+SERVER_MODE = False
+</screen>
+  
+<para>Run the application:</para>
+ 
+<screen>
+(alpha) asarch@jigoku:~/alpha> python3 lib/python3.8/site-packages/pgadmin4/pgAdmin4.py
+</screen>  
+  
 <section>
 <title>Virtual Environment Tools</title>
 
